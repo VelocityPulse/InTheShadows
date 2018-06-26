@@ -2,3 +2,4 @@
 *.a
 /objs
 a.out*
+.DS_Store

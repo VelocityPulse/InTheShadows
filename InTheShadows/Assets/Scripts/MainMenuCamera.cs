@@ -9,11 +9,12 @@ public class MainMenuCamera : MonoBehaviour {
 		SELECTOR
 	}
 
+	private Animator animator;
 	private MenuScene scene = MenuScene.HOME;
 
 	// Use this for initialization
 	void Start () {
-
+		animator = GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
@@ -21,12 +22,12 @@ public class MainMenuCamera : MonoBehaviour {
 
 	}
 
-	public void goToSelectorScene () {
-
+	public void goToSelectorScene (bool debugMode) {
+		animator.SetTrigger ("LookingSelector");
 	}
 
 	public void backToHomeScene () {
-
+		animator.SetTrigger ("LookingHome");
 	}
 
 }

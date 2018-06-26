@@ -20,15 +20,7 @@ public class MainMenuButton : MonoBehaviour, UnityEngine.EventSystems.IPointerDo
 
 	}
 
-	public void OnPointerEnter (PointerEventData eventData) {
-		Debug.Log ("The cursor entered the selectable UI element.");
-	}
-
-	private void OnMouseDown () {
-		Debug.Log ("down");
-	}
-
 	public void OnPointerDown (PointerEventData eventData) {
-		Debug.Log ("Click");
+		Camera.main.GetComponent<MainMenuCamera> ().goToSelectorScene (debugMode);
 	}
 }

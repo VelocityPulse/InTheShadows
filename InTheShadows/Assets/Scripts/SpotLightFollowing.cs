@@ -11,6 +11,10 @@ public class SpotLightFollowing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Vector3 point = Camera.main.ScreenPointToRay (Input.mousePosition).GetPoint (10);
+
+		Debug.Log (point);
+
+		transform.LookAt (point);
 	}
 }

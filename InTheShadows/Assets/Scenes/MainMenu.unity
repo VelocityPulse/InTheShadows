@@ -447,7 +447,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -804,8 +804,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1092442772}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 4.959512, z: -9.275258}
-  m_LocalScale: {x: 2.1671166, y: 0.7462848, z: 1.4351795}
+  m_LocalPosition: {x: 1.82, y: 4.959512, z: -9.275258}
+  m_LocalScale: {x: 5.180794, y: 0.7462848, z: 1.4351795}
   m_Children: []
   m_Father: {fileID: 753537274}
   m_RootOrder: 0
@@ -1071,7 +1071,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -354722669
+  randomSeed: -1143446794
   InitialModule:
     serializedVersion: 3
     enabled: 1

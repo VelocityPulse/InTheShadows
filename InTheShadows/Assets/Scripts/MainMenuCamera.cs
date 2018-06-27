@@ -9,6 +9,8 @@ public class MainMenuCamera : MonoBehaviour {
 		SELECTOR
 	}
 
+	public MainMenuSelectorManager mainMenuSelectorManager;
+
 	private Animator animator;
 	private MenuScene CurrentScene = MenuScene.HOME;
 
@@ -26,6 +28,7 @@ public class MainMenuCamera : MonoBehaviour {
 
 	public void goToSelectorScene (bool debugMode) {
 		animator.SetTrigger ("LookingSelector");
+		mainMenuSelectorManager.reloadScene (debugMode);
 		this.debugMode = debugMode;
 	}
 

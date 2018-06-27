@@ -26,9 +26,6 @@ public class Player : MonoBehaviour {
 	private static Player p = null;
 
 	public static Player getInstance () {
-		if (p == null) {
-			Instantiate (p);
-		}
 		return (p);
 	}
 
@@ -51,7 +48,7 @@ public class Player : MonoBehaviour {
 
 	}
 
-	void initDataToDefault () {
+	public void initDataToDefault () {
 		PlayerPrefs.SetInt (LEVEL_STATUS_1_KEY, (int)LevelStatus.AVAILABLE);
 		PlayerPrefs.SetInt (LEVEL_STATUS_2_KEY, (int)LevelStatus.UNAVAILABLE);
 		PlayerPrefs.SetInt (LEVEL_STATUS_3_KEY, (int)LevelStatus.UNAVAILABLE);
@@ -59,7 +56,7 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt (FIRST_LAUNCH_KEY, 1);
 	}
 
-	void reloadDatas () {
+	public void reloadDatas () {
 		levelStatus1 = PlayerPrefs.GetInt (LEVEL_STATUS_1_KEY);
 		levelStatus2 = PlayerPrefs.GetInt (LEVEL_STATUS_2_KEY);
 		levelStatus3 = PlayerPrefs.GetInt (LEVEL_STATUS_3_KEY);
@@ -67,14 +64,14 @@ public class Player : MonoBehaviour {
 		firstLaunch = PlayerPrefs.GetInt (FIRST_LAUNCH_KEY);
 	}
 
-	void saveDatas () {
+	public void saveDatas () {
 		PlayerPrefs.SetInt (LEVEL_STATUS_1_KEY, levelStatus1);
 		PlayerPrefs.SetInt (LEVEL_STATUS_2_KEY, levelStatus2);
 		PlayerPrefs.SetInt (LEVEL_STATUS_3_KEY, levelStatus3);
 		PlayerPrefs.SetInt (LEVEL_STATUS_4_KEY, levelStatus4);
 	}
 
-	void loadDebugDatas () {
+	public void loadDebugDatas () {
 		levelStatus1 = (int)LevelStatus.SUCCESSED;
 		levelStatus2 = (int)LevelStatus.SUCCESSED;
 		levelStatus3 = (int)LevelStatus.SUCCESSED;

@@ -34,7 +34,20 @@ public class MainMenuSelectorManager : MonoBehaviour {
 	}
 
 	public void reloadScene () {
+		Player p = Player.getInstance ();
 
+		if (p.levelStatus1 == (int)Player.LevelStatus.AVAILABLE) {
+			
+		}
+		if (p.levelStatus2 == (int)Player.LevelStatus.AVAILABLE) {
+
+		}
+		if (p.levelStatus3 == (int)Player.LevelStatus.AVAILABLE) {
+
+		}
+		if (p.levelStatus4 == (int)Player.LevelStatus.AVAILABLE) {
+
+		}
 	}
 
 }

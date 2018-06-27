@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	private enum LevelStatus {
+	public enum LevelStatus {
 		AVAILABLE,
 		UNAVAILABLE,
 		SUCCESSED

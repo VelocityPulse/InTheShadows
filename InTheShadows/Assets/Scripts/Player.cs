@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
 
 	private static Player p = null;
 
-	Player getInstance () {
+	public static Player getInstance () {
 		if (p == null) {
 			Instantiate (p);
 		}

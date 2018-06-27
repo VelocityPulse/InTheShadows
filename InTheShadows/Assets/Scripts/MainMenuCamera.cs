@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainMenuCamera : MonoBehaviour {
 
-	enum MenuScene {
+	public enum MenuScene {
 		HOME,
 		SELECTOR
 	}

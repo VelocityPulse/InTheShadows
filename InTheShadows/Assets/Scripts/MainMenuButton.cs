@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class MainMenuButton : MonoBehaviour, UnityEngine.EventSystems.IPointerDownHandler {
 
+
+	public MainMenuCamera.MenuScene scene = MainMenuCamera.MenuScene.HOME;
+
 	public bool debugMode = false;
 	private UnityEngine.UI.Selectable selectable;
 
@@ -17,10 +20,14 @@ public class MainMenuButton : MonoBehaviour, UnityEngine.EventSystems.IPointerDo
 	void Update () {
 		//selectable.OnPointerEnter ()
 
-
 	}
 
 	public void OnPointerDown (PointerEventData eventData) {
-		Camera.main.GetComponent<MainMenuCamera> ().goToSelectorScene (debugMode);
+		Debug.Log ("click");
+		if (scene == MainMenuCamera.MenuScene.HOME) {
+			Camera.main.GetComponent<MainMenuCamera> ().goToSelectorScene (debugMode);
+		} else if (scene == MainMenuCamera.MenuScene.SELECTOR) {
+			Camera.main.GetComponent<MainMenuCamera> ().backToHomeScene ();
+		}
 	}
 }

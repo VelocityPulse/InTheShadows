@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+	[HideInInspector] public int levelStatus1;
+	[HideInInspector] public int levelStatus2;
+	[HideInInspector] public int levelStatus3;
+	[HideInInspector] public int levelStatus4;
 
-	[HideInInspector] public int levelStatus1 = false;
-	[HideInInspector] public int levelStatus2 = false;
-	[HideInInspector] public int levelStatus3 = false;
-	[HideInInspector] public int levelStatus4 = false;
+	public static Player p = null;
 
 	// Use this for initialization
 	void Start () {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	List<GameObject> selectorLevelButtons = new List<GameObject>();
+	//List<GameObject> selectorLevelButtons = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {

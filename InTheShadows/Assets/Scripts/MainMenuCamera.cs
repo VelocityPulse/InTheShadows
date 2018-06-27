@@ -10,7 +10,9 @@ public class MainMenuCamera : MonoBehaviour {
 	}
 
 	private Animator animator;
-	private MenuScene scene = MenuScene.HOME;
+	private MenuScene CurrentScene = MenuScene.HOME;
+
+	private bool debugMode = false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,10 +26,11 @@ public class MainMenuCamera : MonoBehaviour {
 
 	public void goToSelectorScene (bool debugMode) {
 		animator.SetTrigger ("LookingSelector");
+		this.debugMode = debugMode;
 	}
 
 	public void backToHomeScene () {
 		animator.SetTrigger ("LookingHome");
+		debugMode = false;
 	}
-
 }

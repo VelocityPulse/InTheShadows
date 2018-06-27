@@ -8,7 +8,7 @@ public class MainMenuButton : MonoBehaviour, UnityEngine.EventSystems.IPointerDo
 
 	public MainMenuCamera.MenuScene scene = MainMenuCamera.MenuScene.HOME;
 
-	public bool debugMode = false;
+	[SerializeField] bool debugMode = false;
 	private UnityEngine.UI.Selectable selectable;
 
 	// Use this for initialization

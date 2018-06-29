@@ -25,7 +25,7 @@ public class MainMenuSelectorLevelButton : MonoBehaviour {
 
 	private void OnMouseDown () {
 		Debug.Log (Player.getInstance ().statusLevelFor ((int)index));
-		if (Player.getInstance ().statusLevelFor ((int)index) == Player.LevelStatus.AVAILABLE) {
+		if (Player.getInstance ().statusLevelFor ((int)index) != Player.LevelStatus.UNAVAILABLE) {
 			switch (index) {
 			case ButtonIndex.LEVEL1:
 				UnityEngine.SceneManagement.SceneManager.LoadScene ("Level1");

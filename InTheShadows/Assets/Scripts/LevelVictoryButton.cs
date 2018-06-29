@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class LevelVictoryButton : MonoBehaviour {
 
+	public enum ButtonIndex {
+		BACK,
+		CONTINUE
+	}
+
+	public ButtonIndex index = ButtonIndex.BACK;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +20,13 @@ public class LevelVictoryButton : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void onClick() {
+		if (index == ButtonIndex.BACK) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("MainMenu");
+		} else {
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("Level2");
+		}
+	}
+
 }

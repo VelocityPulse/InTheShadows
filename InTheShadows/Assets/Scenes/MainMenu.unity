@@ -4398,10 +4398,10 @@ GameObject:
   - component: {fileID: 855061788}
   - component: {fileID: 855061793}
   - component: {fileID: 855061791}
+  - component: {fileID: 855061794}
   - component: {fileID: 855061790}
   - component: {fileID: 855061789}
   - component: {fileID: 855061792}
-  - component: {fileID: 855061794}
   m_Layer: 5
   m_Name: lvl2
   m_TagString: Untagged
@@ -8801,10 +8801,10 @@ GameObject:
   - component: {fileID: 1706569252}
   - component: {fileID: 1706569257}
   - component: {fileID: 1706569255}
+  - component: {fileID: 1706569258}
   - component: {fileID: 1706569254}
   - component: {fileID: 1706569253}
   - component: {fileID: 1706569256}
-  - component: {fileID: 1706569258}
   m_Layer: 5
   m_Name: lvl1
   m_TagString: Untagged
@@ -9029,10 +9029,10 @@ GameObject:
   - component: {fileID: 1810922974}
   - component: {fileID: 1810922979}
   - component: {fileID: 1810922977}
+  - component: {fileID: 1810922980}
   - component: {fileID: 1810922976}
   - component: {fileID: 1810922975}
   - component: {fileID: 1810922978}
-  - component: {fileID: 1810922980}
   m_Layer: 5
   m_Name: lvl4
   m_TagString: Untagged
@@ -9473,10 +9473,10 @@ GameObject:
   - component: {fileID: 1948599416}
   - component: {fileID: 1948599421}
   - component: {fileID: 1948599419}
+  - component: {fileID: 1948599422}
   - component: {fileID: 1948599418}
   - component: {fileID: 1948599417}
   - component: {fileID: 1948599420}
-  - component: {fileID: 1948599422}
   m_Layer: 5
   m_Name: lvl3
   m_TagString: Untagged

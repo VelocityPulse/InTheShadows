@@ -45,6 +45,7 @@ public class Elephant : MonoBehaviour {
 			canvasGroup.gameObject.SetActive (true);
 			Camera.main.GetComponent<Animator> ().SetTrigger ("Victory");
 			Player.getInstance ().levelStatus1 = (int)Player.LevelStatus.SUCCESSED;
+			Player.getInstance ().levelStatus2 = (int)Player.LevelStatus.AVAILABLE;
 			Player.getInstance ().saveDatas ();
 		}
 	}

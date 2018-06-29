@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class MainMenuCamera : MonoBehaviour {
 
-	public enum MenuScene {
-		HOME,
-		SELECTOR
-	}
-
 	public MainMenuSelectorManager mainMenuSelectorManager;
 
 	private Animator animator;
-	private MenuScene CurrentScene = MenuScene.HOME;
-
 	private bool debugMode = false;
 
 	// Use this for initialization

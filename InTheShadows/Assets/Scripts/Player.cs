@@ -69,6 +69,7 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt (LEVEL_STATUS_3_KEY, (int)LevelStatus.UNAVAILABLE);
 		PlayerPrefs.SetInt (LEVEL_STATUS_4_KEY, (int)LevelStatus.UNAVAILABLE);
 		PlayerPrefs.SetInt (FIRST_LAUNCH_KEY, 1);
+		PlayerPrefs.Save ();
 	}
 
 	public void reloadDatas () {
@@ -84,6 +85,7 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt (LEVEL_STATUS_2_KEY, levelStatus2);
 		PlayerPrefs.SetInt (LEVEL_STATUS_3_KEY, levelStatus3);
 		PlayerPrefs.SetInt (LEVEL_STATUS_4_KEY, levelStatus4);
+		PlayerPrefs.Save ();
 	}
 
 	public void loadDebugDatas () {

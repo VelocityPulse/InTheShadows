@@ -48,6 +48,7 @@ public class MainMenuSelectorManager : MonoBehaviour {
 			light1.color = colorUnavailable;
 		} else if (p.levelStatus1 == (int)Player.LevelStatus.SUCCESSED) {
 			light1.color = colorSuccessed;
+			level1.GetComponent<Animator> ().SetTrigger ("Unlocked");
 		}
 
 		if (p.levelStatus2 == (int)Player.LevelStatus.AVAILABLE) {

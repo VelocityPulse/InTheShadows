@@ -14,6 +14,7 @@ public class MainMenuSelectorManager : MonoBehaviour {
 	public GameObject level3;
 	public GameObject level4;
 
+
 	private Light light1;
 	private Light light2;
 	private Light light3;
@@ -40,8 +41,6 @@ public class MainMenuSelectorManager : MonoBehaviour {
 		} else {
 			p.reloadDatas ();
 		}
-
-		Debug.Log (p);
 
 		if (p.levelStatus1 == (int)Player.LevelStatus.AVAILABLE) {
 			light1.color = colorAvailable;

@@ -23,7 +23,6 @@ public class MainMenuButton : MonoBehaviour, UnityEngine.EventSystems.IPointerDo
 	}
 
 	public void OnPointerDown (PointerEventData eventData) {
-		Debug.Log ("click");
 		if (scene == MainMenuCamera.MenuScene.HOME) {
 			Camera.main.GetComponent<MainMenuCamera> ().goToSelectorScene (debugMode);
 		} else if (scene == MainMenuCamera.MenuScene.SELECTOR) {

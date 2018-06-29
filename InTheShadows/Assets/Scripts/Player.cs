@@ -48,6 +48,22 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public LevelStatus statusLevelFor(int i) {
+		if (i  == 0) {
+			return (LevelStatus)levelStatus1;
+		}
+		if (i == 1) {
+			return (LevelStatus)levelStatus2;
+		}
+		if (i == 2) {
+			return (LevelStatus)levelStatus3;
+		}
+		if (i == 3) {
+			return (LevelStatus)levelStatus4;
+		}
+		return LevelStatus.UNAVAILABLE;
+	}
+
 	public void initDataToDefault () {
 		PlayerPrefs.SetInt (LEVEL_STATUS_1_KEY, (int)LevelStatus.AVAILABLE);
 		PlayerPrefs.SetInt (LEVEL_STATUS_2_KEY, (int)LevelStatus.UNAVAILABLE);

@@ -25,21 +25,20 @@ public class Elephant : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!victory && Input.GetMouseButton (0)) {
-			transform.Rotate (Input.GetAxis ("Mouse Y") * Time.deltaTime * 120, 0, 0, Space.Self);
+			transform.Rotate (Input.GetAxis ("Mouse Y") * Time.deltaTime * 250, 0, 0, Space.Self);
 			checkVictory ();
 		} else if (victory) {
 			transform.rotation = Quaternion.RotateTowards (transform.rotation, Quaternion.Euler (victoryRotation), 0.1f);
 			if (canvasGroup.alpha < 1) {
 				canvasGroup.alpha += Time.deltaTime;
 			}
-
 		}
 	}
 
 	void checkVictory () {
 		float angle = Vector3.Angle (transform.rotation.eulerAngles, startRotation);
-
-		if (Mathf.Round (angle) == 77) {
+		Debug.Log (angle);
+		if (Mathf.Round (angle) > 65 && Mathf.Round(angle) < 78) {
 			Debug.Log ("Victory");
 			victory = true;
 			canvasGroup.gameObject.SetActive (true);

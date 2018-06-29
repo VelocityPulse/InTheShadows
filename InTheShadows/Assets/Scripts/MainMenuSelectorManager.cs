@@ -30,7 +30,7 @@ public class MainMenuSelectorManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//light1.color = ColorUtility.
+
 	}
 
 	public void reloadScene (bool debugMode) {
@@ -40,6 +40,8 @@ public class MainMenuSelectorManager : MonoBehaviour {
 		} else {
 			p.reloadDatas ();
 		}
+
+		Debug.Log (p);
 
 		if (p.levelStatus1 == (int)Player.LevelStatus.AVAILABLE) {
 			light1.color = colorAvailable;

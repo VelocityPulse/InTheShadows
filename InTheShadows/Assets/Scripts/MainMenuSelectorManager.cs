@@ -57,6 +57,7 @@ public class MainMenuSelectorManager : MonoBehaviour {
 			light2.color = colorUnavailable;
 		} else if (p.levelStatus2 == (int)Player.LevelStatus.SUCCESSED) {
 			light2.color = colorSuccessed;
+			level1.GetComponent<Animator> ().SetTrigger ("Unlocked");
 		}
 
 		if (p.levelStatus3 == (int)Player.LevelStatus.AVAILABLE) {
@@ -65,6 +66,7 @@ public class MainMenuSelectorManager : MonoBehaviour {
 			light3.color = colorUnavailable;
 		} else if (p.levelStatus3 == (int)Player.LevelStatus.SUCCESSED) {
 			light3.color = colorSuccessed;
+			level1.GetComponent<Animator> ().SetTrigger ("Unlocked");
 		}
 
 		if (p.levelStatus4 == (int)Player.LevelStatus.AVAILABLE) {
@@ -73,6 +75,7 @@ public class MainMenuSelectorManager : MonoBehaviour {
 			light4.color = colorUnavailable;
 		} else if (p.levelStatus4 == (int)Player.LevelStatus.SUCCESSED) {
 			light4.color = colorSuccessed;
+			level1.GetComponent<Animator> ().SetTrigger ("Unlocked");
 		}
 	}
 }

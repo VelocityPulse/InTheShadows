@@ -48,20 +48,19 @@ public class Player : MonoBehaviour {
 
 	}
 
-	public LevelStatus statusLevelFor(int i) {
-		if (i  == 0) {
+	public LevelStatus statusLevelFor (int i) {
+		switch (i) {
+		case 0:
 			return (LevelStatus)levelStatus1;
-		}
-		if (i == 1) {
+		case 1:
 			return (LevelStatus)levelStatus2;
-		}
-		if (i == 2) {
+		case 2:
 			return (LevelStatus)levelStatus3;
-		}
-		if (i == 3) {
+		case 3:
 			return (LevelStatus)levelStatus4;
+		default:
+			return LevelStatus.UNAVAILABLE;
 		}
-		return LevelStatus.UNAVAILABLE;
 	}
 
 	public void initDataToDefault () {

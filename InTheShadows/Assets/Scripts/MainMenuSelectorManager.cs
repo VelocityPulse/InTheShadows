@@ -74,5 +74,4 @@ public class MainMenuSelectorManager : MonoBehaviour {
 			light4.color = colorSuccessed;
 		}
 	}
-
 }

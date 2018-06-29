@@ -15,17 +15,32 @@ public class MainMenuSelectorLevelButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	private void OnMouseDown () {
 		Debug.Log (Player.getInstance ().statusLevelFor ((int)index));
-		
+		if (Player.getInstance ().statusLevelFor ((int)index) == Player.LevelStatus.AVAILABLE) {
+			switch (index) {
+			case ButtonIndex.LEVEL1:
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("Level1");
+				break;
+			case ButtonIndex.LEVEL2:
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("Level2");
+				break;
+			case ButtonIndex.LEVEL3:
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("Level3");
+				break;
+			case ButtonIndex.LEVEL4:
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("Level4");
+				break;
+			}
+		}
 	}
 
 }

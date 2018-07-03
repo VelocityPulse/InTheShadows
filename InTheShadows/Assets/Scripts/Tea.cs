@@ -9,7 +9,6 @@ public class Tea : MonoBehaviour
 
     private Vector3 startRotation;
     private Vector3 victoryRotation;
-    private float onClickMousePosy;
 
     private bool victory = false;
 

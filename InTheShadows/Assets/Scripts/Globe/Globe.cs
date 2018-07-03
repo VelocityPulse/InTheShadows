@@ -4,21 +4,41 @@ using UnityEngine;
 
 public class Globe : MonoBehaviour
 {
+    enum CurrentClicked
+    {
+        GLOBE,
+        BODY
+    }
 
     public CanvasGroup canvasGroup;
+    public Transform globe;
+    public Transform body;
 
-    private Vector3 startRotation;
-    private Vector3 victoryRotation;
-    private float onClickMousePosy;
+    private Vector3 startRotationGlobe;
+    private Vector3 victoryRotationGlobe;
+
+    private Vector3 startRotationBody;
+    private Vector3 victoryRotationBody;
+
+    private CurrentClicked currentClicked = CurrentClicked.GLOBE;
 
     private bool victory = false;
 
     // Use this for initialization
     void Start()
     {
-        startRotation = new Vector3(163.825f, 236.875f, -198.965f);
-        victoryRotation = transform.rotation.eulerAngles;
-        transform.eulerAngles = startRotation;
+        // globe
+        startRotationGlobe = new Vector3(163.825f, 236.875f, -198.965f);
+        victoryRotationGlobe = transform.rotation.eulerAngles;
+        globe.eulerAngles = startRotationGlobe;
+
+
+        // body
+        startRotationBody = new Vector3(163.825f, 236.875f, -198.965f);
+        victoryRotationBody = transform.rotation.eulerAngles;
+        body.eulerAngles = startRotationBody;
+
+
         canvasGroup.alpha = 0;
         canvasGroup.gameObject.SetActive(false);
     }
@@ -45,7 +65,7 @@ public class Globe : MonoBehaviour
         }
         else if (victory)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(victoryRotation), 0.1f);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(victoryRotationGlobe), 0.1f);
             if (canvasGroup.alpha < 1)
             {
                 canvasGroup.alpha += Time.deltaTime;
@@ -55,7 +75,7 @@ public class Globe : MonoBehaviour
 
     void checkVictory()
     {
-        float dist = Vector3.Distance(transform.rotation.eulerAngles, victoryRotation);
+        float dist = Vector3.Distance(transform.rotation.eulerAngles, victoryRotationGlobe);
         //Debug.Log(dist);
 
         if (dist > 0 && dist < 3)
@@ -70,4 +90,13 @@ public class Globe : MonoBehaviour
         }
     }
 
+    public void onClickForm1()
+    {
+        currentClicked = CurrentClicked.GLOBE;
+    }
+
+    public void onClickForm2()
+    {
+        currentClicked = CurrentClicked.BODY;
+    }
 }

@@ -36,9 +36,9 @@ public class Elephant : MonoBehaviour {
 	}
 
 	void checkVictory () {
-		float angle = Vector3.Angle (transform.rotation.eulerAngles, startRotation);
+		float angle = Vector3.Angle (transform.rotation.eulerAngles, victoryRotation);
 		Debug.Log (angle);
-		if (Mathf.Round (angle) > 65 && Mathf.Round(angle) < 78) {
+		if (Mathf.Round (angle) > 0 && Mathf.Round(angle) < 5) {
 			Debug.Log ("Victory");
 			victory = true;
 			canvasGroup.gameObject.SetActive (true);

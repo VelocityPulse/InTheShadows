@@ -10,6 +10,13 @@ public class Player : MonoBehaviour {
 		SUCCESSED
 	}
 
+    public enum LevelID {
+        LEVEL_1,
+        LEVEL_2,
+        LEVEL_3,
+        LEVEL_4,
+    }
+
 	private const string LEVEL_STATUS_1_KEY = "LEVEL_STATUS_1_KEY";
 	private const string LEVEL_STATUS_2_KEY = "LEVEL_STATUS_2_KEY";
 	private const string LEVEL_STATUS_3_KEY = "LEVEL_STATUS_3_KEY";

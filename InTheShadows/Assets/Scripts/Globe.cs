@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tea : MonoBehaviour
+public class Globe : MonoBehaviour
 {
 
     public CanvasGroup canvasGroup;
@@ -57,7 +57,7 @@ public class Tea : MonoBehaviour
     {
         float dist = Vector3.Distance(transform.rotation.eulerAngles, victoryRotation);
         //Debug.Log(dist);
-            
+
         if (dist > 0 && dist < 3)
         {
             Debug.Log("Victory");

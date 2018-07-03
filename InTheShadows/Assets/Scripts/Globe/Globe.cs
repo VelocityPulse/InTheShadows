@@ -15,29 +15,34 @@ public class Globe : MonoBehaviour
     public Transform body;
     private Transform current = null;
 
-    private Vector3 startRotationGlobe;
     private Vector3 victoryRotationGlobe;
+    private Vector3 victoryPositionGlobe;
 
-    private Vector3 startRotationBody;
     private Vector3 victoryRotationBody;
+    private Vector3 victoryPositionBody;
+
+    private Vector3 victoryRelativePosition;
 
     private CurrentClicked currentID = CurrentClicked.GLOBE;
 
-    private bool victory = false;
+    public bool victory = false;
 
     // Use this for initialization
     void Start()
     {
         // globe
-        startRotationGlobe = new Vector3(163.825f, 236.875f, -198.965f);
-        victoryRotationGlobe = transform.rotation.eulerAngles;
-        globe.eulerAngles = startRotationGlobe;
+        victoryRotationGlobe = transform.localRotation.eulerAngles;
+        victoryPositionGlobe = globe.localPosition;
+        globe.eulerAngles = new Vector3(163.825f, 236.875f, -198.965f);
+        globe.localPosition = new Vector3(7.318865f, -0.04358357f, -3.809745f);
 
         // body
-        startRotationBody = new Vector3(163.825f, 236.875f, -198.965f);
-        victoryRotationBody = transform.rotation.eulerAngles;
-        body.eulerAngles = startRotationBody;
-
+        victoryRotationBody = transform.localRotation.eulerAngles;
+        victoryPositionBody = body.localPosition;
+        body.eulerAngles = new Vector3(163.825f, 236.875f, -198.965f);
+        body.localPosition = new Vector3(-7.850225f, 1.035947f, 5.402049f);
+            
+        victoryRelativePosition = victoryPositionBody - victoryPositionGlobe;
 
         canvasGroup.alpha = 0;
         canvasGroup.gameObject.SetActive(false);
@@ -62,13 +67,14 @@ public class Globe : MonoBehaviour
                 {
                     current.Rotate(Input.GetAxis("Mouse Y") * Time.deltaTime * 250, 0, 0, Space.World);
                 }
-                //current.rotation = Quaternion.Euler(current.rotation.eulerAngles.x, current.rotation.eulerAngles.y, 0);
+//                current.localRotation = Quaternion.Euler(current.localRotation.eulerAngles.x, current.localRotation.eulerAngles.y, 0);
                 checkVictory();
             }
         }
         else if (victory)
         {
-            current.rotation = Quaternion.RotateTowards(current.rotation, Quaternion.Euler(victoryRotationGlobe), 0.1f);
+            globe.localRotation = Quaternion.RotateTowards(globe.localRotation, Quaternion.Euler(victoryRotationGlobe), 0.6f);
+            body.localRotation = Quaternion.RotateTowards(body.localRotation, Quaternion.Euler(victoryRotationBody), 0.1f);
             if (canvasGroup.alpha < 1)
             {
                 canvasGroup.alpha += Time.deltaTime;
@@ -78,10 +84,16 @@ public class Globe : MonoBehaviour
 
     void checkVictory()
     {
-        float dist = Vector3.Distance(current.rotation.eulerAngles, victoryRotationGlobe);
-        //Debug.Log(dist);
+        float distGlobe = Vector3.Distance(globe.localRotation.eulerAngles, victoryRotationGlobe);
+        float distBody = Vector3.Distance(body.localRotation.eulerAngles, victoryRotationBody);
+        float distRelative = Vector3.Distance(body.localPosition - globe.localPosition, victoryRelativePosition);
+        //Debug.Log("dist globe " + distGlobe);
+        //Debug.Log("dist body " + distBody);
+        Debug.Log("dist rel " + distRelative);
 
-        if (dist > 0 && dist < 3)
+        if (distRelative < 1 &&
+            ((distGlobe > 410 && distGlobe < 520) || (distGlobe > 310 && distGlobe < 375)) &&
+            (distBody > 300 && distBody < 600))
         {
             Debug.Log("Victory");
             victory = true;
@@ -95,14 +107,12 @@ public class Globe : MonoBehaviour
 
     public void onClickForm1()
     {
-        Debug.Log("click1");
         currentID = CurrentClicked.GLOBE;
         current = globe;
     }
 
     public void onClickForm2()
     {
-        Debug.Log("click2");
         currentID = CurrentClicked.BODY;
         current = body;
     }

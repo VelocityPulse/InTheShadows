@@ -403,8 +403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1274370023}
-  globe: {fileID: 1861955807}
-  body: {fileID: 543620673}
+  globe: {fileID: 573233108}
+  body: {fileID: 1641385610}
+  victory: 0
 --- !u!4 &509341862
 Transform:
   m_ObjectHideFlags: 0
@@ -606,6 +607,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indexOfForm: 0
   parent: {fileID: 509341861}
+--- !u!4 &573233108 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400002, guid: 2bf3817d483541f47ba1e3b870295acc, type: 3}
+  m_PrefabInternal: {fileID: 543620672}
 --- !u!1 &709201706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,6 +1526,10 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: a5a28f2d40646a245bb8e94812593d27, type: 3}
   m_PrefabInternal: {fileID: 1861955805}
+--- !u!4 &1641385610 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: a5a28f2d40646a245bb8e94812593d27, type: 3}
+  m_PrefabInternal: {fileID: 1861955805}
 --- !u!114 &1641385613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,11 +1760,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: a5a28f2d40646a245bb8e94812593d27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.305175
+      value: -14.305
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: a5a28f2d40646a245bb8e94812593d27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.5662575
+      value: 6.561
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: a5a28f2d40646a245bb8e94812593d27, type: 3}
       propertyPath: m_LocalPosition.z

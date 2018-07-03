@@ -7,7 +7,6 @@ public class MainMenuCamera : MonoBehaviour {
 	public MainMenuSelectorManager mainMenuSelectorManager;
 
 	private Animator animator;
-	private bool debugMode = false;
 
 	// Use this for initialization
 	void Start () {
@@ -22,11 +21,9 @@ public class MainMenuCamera : MonoBehaviour {
 	public void goToSelectorScene (bool debugMode) {
 		animator.SetTrigger ("LookingSelector");
 		mainMenuSelectorManager.reloadScene (debugMode);
-		this.debugMode = debugMode;
 	}
 
 	public void backToHomeScene () {
-		animator.SetTrigger ("LookingHome");
-		debugMode = false;
+        animator.SetTrigger("LookingHome");
 	}
 }

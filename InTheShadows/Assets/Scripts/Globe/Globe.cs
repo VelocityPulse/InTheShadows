@@ -13,6 +13,7 @@ public class Globe : MonoBehaviour
     public CanvasGroup canvasGroup;
     public Transform globe;
     public Transform body;
+    private Transform current = null;
 
     private Vector3 startRotationGlobe;
     private Vector3 victoryRotationGlobe;
@@ -20,7 +21,7 @@ public class Globe : MonoBehaviour
     private Vector3 startRotationBody;
     private Vector3 victoryRotationBody;
 
-    private CurrentClicked currentClicked = CurrentClicked.GLOBE;
+    private CurrentClicked currentID = CurrentClicked.GLOBE;
 
     private bool victory = false;
 
@@ -31,7 +32,6 @@ public class Globe : MonoBehaviour
         startRotationGlobe = new Vector3(163.825f, 236.875f, -198.965f);
         victoryRotationGlobe = transform.rotation.eulerAngles;
         globe.eulerAngles = startRotationGlobe;
-
 
         // body
         startRotationBody = new Vector3(163.825f, 236.875f, -198.965f);
@@ -48,11 +48,15 @@ public class Globe : MonoBehaviour
     {
         if (!victory)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && current != null)
             {
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * -250, 0, Space.Self);
+                }
+                else if (Input.GetKey(KeyCode.LeftControl))
+                {
+                    transform.Translate (Input.GetAxis("Mouse Y") * Time.deltaTime * 250, Input.GetAxis("Mouse X") * Time.deltaTime * -250, 0, Space.Self);
                 }
                 else
                 {
@@ -92,11 +96,15 @@ public class Globe : MonoBehaviour
 
     public void onClickForm1()
     {
-        currentClicked = CurrentClicked.GLOBE;
+        Debug.Log("click1");
+        currentID = CurrentClicked.GLOBE;
+        current = globe;
     }
 
     public void onClickForm2()
     {
-        currentClicked = CurrentClicked.BODY;
+        Debug.Log("click2");
+        currentID = CurrentClicked.BODY;
+        current = body;
     }
 }

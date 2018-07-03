@@ -52,24 +52,23 @@ public class Globe : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * -250, 0, Space.Self);
+                    current.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * -250, 0, Space.World);
                 }
                 else if (Input.GetKey(KeyCode.LeftControl))
                 {
-                    transform.Translate (Input.GetAxis("Mouse Y") * Time.deltaTime * 250, Input.GetAxis("Mouse X") * Time.deltaTime * -250, 0, Space.Self);
+                    current.Translate (Input.GetAxis("Mouse X") * Time.deltaTime, Input.GetAxis("Mouse Y") * Time.deltaTime, 0, Space.World);
                 }
                 else
                 {
-                    transform.Rotate(Input.GetAxis("Mouse Y") * Time.deltaTime * 250, 0, 0, Space.Self);
+                    current.Rotate(Input.GetAxis("Mouse Y") * Time.deltaTime * 250, 0, 0, Space.World);
                 }
-
+                //current.rotation = Quaternion.Euler(current.rotation.eulerAngles.x, current.rotation.eulerAngles.y, 0);
+                checkVictory();
             }
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-            checkVictory();
         }
         else if (victory)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(victoryRotationGlobe), 0.1f);
+            current.rotation = Quaternion.RotateTowards(current.rotation, Quaternion.Euler(victoryRotationGlobe), 0.1f);
             if (canvasGroup.alpha < 1)
             {
                 canvasGroup.alpha += Time.deltaTime;
@@ -79,7 +78,7 @@ public class Globe : MonoBehaviour
 
     void checkVictory()
     {
-        float dist = Vector3.Distance(transform.rotation.eulerAngles, victoryRotationGlobe);
+        float dist = Vector3.Distance(current.rotation.eulerAngles, victoryRotationGlobe);
         //Debug.Log(dist);
 
         if (dist > 0 && dist < 3)

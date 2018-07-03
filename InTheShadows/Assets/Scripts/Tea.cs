@@ -38,11 +38,10 @@ public class Tea : MonoBehaviour
                 {
                     transform.Rotate(Input.GetAxis("Mouse Y") * Time.deltaTime * 250, 0, 0, Space.Self);
                 }
-                checkVictory();
-                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+
             }
-
-
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+            checkVictory();
         }
         else if (victory)
         {
@@ -56,10 +55,11 @@ public class Tea : MonoBehaviour
 
     void checkVictory()
     {
-        float dist = Vector3.Distance(transform.rotation.eulerAngles, startRotation);
-       // Debug.Log(dist);
+        float dist = Vector3.Distance(transform.rotation.eulerAngles, victoryRotation);
+        //Debug.Log(dist);
        
-        if (dist > 260 && dist < 263)
+            
+        if (dist > 0 && dist < 3)
         {
             Debug.Log("Victory");
             victory = true;

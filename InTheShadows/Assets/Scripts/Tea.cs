@@ -25,12 +25,12 @@ public class Tea : MonoBehaviour {
 		if (!victory) {
 			if (Input.GetMouseButton (0)) {
 				if (Input.GetKey (KeyCode.LeftShift)) {
-					transform.Rotate (0, Input.GetAxis ("Mouse X") * Time.deltaTime * -250, 0, Space.Self);
+					transform.Rotate (0, Input.GetAxis ("Mouse X") * Time.deltaTime * -250, 0, Space.World);
 				} else {
-					transform.Rotate (Input.GetAxis ("Mouse Y") * Time.deltaTime * 250, 0, 0, Space.Self);
+					transform.Rotate (Input.GetAxis ("Mouse Y") * Time.deltaTime * 250, 0, 0, Space.World);
 				}
 			}
-			transform.rotation = Quaternion.Euler (transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+			//transform.rotation = Quaternion.Euler (transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
 			checkVictory ();
 		} else if (victory) {
 			transform.rotation = Quaternion.RotateTowards (transform.rotation, Quaternion.Euler (victoryRotation), 0.1f);
@@ -42,7 +42,7 @@ public class Tea : MonoBehaviour {
 
 	void checkVictory () {
 		float dist = Vector3.Distance (transform.rotation.eulerAngles, victoryRotation);
-		//Debug.Log(dist);
+		Debug.Log(dist);
 
 		if (dist > 0 && dist < 3) {
 			Debug.Log ("Victory");

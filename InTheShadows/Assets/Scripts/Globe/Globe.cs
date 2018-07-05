@@ -30,7 +30,7 @@ public class Globe : MonoBehaviour {
 		// globe
 		victoryRotationGlobe = transform.localRotation.eulerAngles;
 		victoryPositionGlobe = globe.localPosition;
-		globe.eulerAngles = new Vector3 (163.825f, 236.875f, -198.965f);
+		globe.eulerAngles = new Vector3 (-10.73f, -26.201f, -180.052f);
 		globe.localPosition = new Vector3 (7.318865f, -0.04358357f, -3.809745f);
 
 		// body
@@ -56,12 +56,14 @@ public class Globe : MonoBehaviour {
 				} else {
 					current.Rotate (Input.GetAxis ("Mouse Y") * Time.deltaTime * 250, 0, 0, Space.World);
 				}
-				//                current.localRotation = Quaternion.Euler(current.localRotation.eulerAngles.x, current.localRotation.eulerAngles.y, 0);
+				//current.localRotation = Quaternion.Euler(current.localRotation.eulerAngles.x, current.localRotation.eulerAngles.y, 0);
 				checkVictory ();
 			}
 		} else if (victory) {
-			globe.localRotation = Quaternion.RotateTowards (globe.localRotation, Quaternion.Euler (victoryRotationGlobe), 0.6f);
-			body.localRotation = Quaternion.RotateTowards (body.localRotation, Quaternion.Euler (victoryRotationBody), 0.1f);
+			globe.localRotation = Quaternion.RotateTowards (globe.localRotation, Quaternion.Euler (victoryRotationGlobe), 0.4f);
+			body.localRotation = Quaternion.RotateTowards (body.localRotation, Quaternion.Euler (victoryRotationBody), 0.4f);
+			globe.localPosition = Vector3.MoveTowards (globe.localPosition, victoryPositionGlobe, 0.1f);
+			body.localPosition = Vector3.MoveTowards (body.localPosition, victoryPositionBody, 0.1f);
 			if (canvasGroup.alpha < 1) {
 				canvasGroup.alpha += Time.deltaTime;
 			}

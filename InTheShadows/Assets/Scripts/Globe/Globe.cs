@@ -28,6 +28,7 @@ public class Globe : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// globe
+		// TODO BIG ERROR HERE : using of transform instead body or globe
 		victoryRotationGlobe = transform.localRotation.eulerAngles;
 		victoryPositionGlobe = globe.localPosition;
 		globe.eulerAngles = new Vector3 (-10.73f, -26.201f, -180.052f);
@@ -39,7 +40,9 @@ public class Globe : MonoBehaviour {
 		body.eulerAngles = new Vector3 (163.825f, 236.875f, -198.965f);
 		body.localPosition = new Vector3 (-7.850225f, 1.035947f, 5.402049f);
 
+		// USELESS TO REMOVE
 		victoryRelativePosition = victoryPositionBody - victoryPositionGlobe;
+
 
 		canvasGroup.alpha = 0;
 		canvasGroup.gameObject.SetActive (false);
@@ -73,7 +76,7 @@ public class Globe : MonoBehaviour {
 	void checkVictory () {
 		float distGlobe = Vector3.Distance (globe.localRotation.eulerAngles, victoryRotationGlobe);
 		float distBody = Vector3.Distance (body.localRotation.eulerAngles, victoryRotationBody);
-		float distRelative = Vector3.Distance (body.localPosition - globe.localPosition, victoryRelativePosition);
+		float distRelative = Vector3.Distance (body.localPosition - victoryPositionBody, globe.localPosition - victoryPositionGlobe);
 		//Debug.Log("dist globe " + distGlobe);
 		//Debug.Log("dist body " + distBody);
 		Debug.Log ("dist rel " + distRelative);
@@ -85,8 +88,8 @@ public class Globe : MonoBehaviour {
 			victory = true;
 			canvasGroup.gameObject.SetActive (true);
 			Camera.main.GetComponent<Animator> ().SetTrigger ("Victory");
-			Player.getInstance ().levelStatus2 = (int)Player.LevelStatus.SUCCESSED;
-			Player.getInstance ().levelStatus3 = (int)Player.LevelStatus.AVAILABLE;
+			Player.getInstance ().levelStatus3 = (int)Player.LevelStatus.SUCCESSED;
+			Player.getInstance ().levelStatus4 = (int)Player.LevelStatus.AVAILABLE;
 			Player.getInstance ().saveDatas ();
 		}
 	}

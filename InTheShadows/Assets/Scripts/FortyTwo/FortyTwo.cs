@@ -19,8 +19,6 @@ public class FortyTwo : MonoBehaviour {
 	private Vector3 victoryRotationTwo;
 	private Vector3 victoryPositionTwo;
 
-	private Vector3 victoryRelativePosition;
-
 	private CurrentClicked currentID = CurrentClicked.FOUR;
 
 	public bool victory = false;
@@ -28,19 +26,20 @@ public class FortyTwo : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// four
-		victoryRotationFour = transform.localRotation.eulerAngles;
+		victoryRotationFour = four.localRotation.eulerAngles;
 		victoryPositionFour = four.localPosition;
-		four.eulerAngles = new Vector3 (-10.73f, -26.201f, -180.052f);
-		four.localPosition = new Vector3 (7.318865f, -0.04358357f, -3.809745f);
+
+		four.localEulerAngles = new Vector3 (-10.73f, -26.201f, -180.052f);
+		four.localPosition = new Vector3 (19.53772f, 12.67769f, -0.6504072f);
 
 		// two
-		victoryRotationTwo = transform.localRotation.eulerAngles;
+		victoryRotationTwo = two.localRotation.eulerAngles;
 		victoryPositionTwo = two.localPosition;
-		two.eulerAngles = new Vector3 (163.825f, 236.875f, -198.965f);
-		two.localPosition = new Vector3 (-7.850225f, 1.035947f, 5.402049f);
 
-		victoryRelativePosition = victoryPositionTwo - victoryPositionFour;
+		two.localEulerAngles = new Vector3 (163.825f, 236.875f, -198.965f);
+		two.localPosition = new Vector3 (9.844487f, -11.73325f, -0.2967299f);
 
+		// canvas
 		canvasGroup.alpha = 0;
 		canvasGroup.gameObject.SetActive (false);
 	}
@@ -71,22 +70,23 @@ public class FortyTwo : MonoBehaviour {
 	}
 
 	void checkVictory () {
-		float distFour = Vector3.Distance (four.localRotation.eulerAngles, victoryRotationFour);
+		float distFour = Vector3.Angle (four.localRotation.eulerAngles, victoryRotationFour);
 		float distTwo = Vector3.Distance (two.localRotation.eulerAngles, victoryRotationTwo);
-		float distRelative = Vector3.Distance (two.localPosition - four.localPosition, victoryRelativePosition);
-		//Debug.Log("dist four " + distFour);
-		//Debug.Log("dist two " + distTwo);
+		float distRelative = Vector3.Distance (four.localPosition - victoryPositionFour, two.localPosition - victoryPositionTwo);
+
+		Debug.Log("dist four " + distFour);
+		Debug.Log ("dist two " + distTwo);
 		Debug.Log ("dist rel " + distRelative);
 
-		if (distRelative < 1 &&
-			((distFour > 410 && distFour < 520) || (distFour > 310 && distFour < 375)) &&
-			(distTwo > 300 && distTwo < 600)) {
+		if (distRelative < 5 && 
+		    (Mathf.Round(distFour) == 70 || (int)distFour == 63) &&
+		    (distTwo < 15 || (distTwo > 357 && distTwo < 360) || (distTwo > 501 && distTwo < 508))) {
+			
 			Debug.Log ("Victory");
 			victory = true;
 			canvasGroup.gameObject.SetActive (true);
 			Camera.main.GetComponent<Animator> ().SetTrigger ("Victory");
-			Player.getInstance ().levelStatus2 = (int)Player.LevelStatus.SUCCESSED;
-			Player.getInstance ().levelStatus3 = (int)Player.LevelStatus.AVAILABLE;
+			Player.getInstance ().levelStatus4 = (int)Player.LevelStatus.SUCCESSED;
 			Player.getInstance ().saveDatas ();
 		}
 	}

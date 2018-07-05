@@ -74,14 +74,14 @@ public class FortyTwo : MonoBehaviour {
 		float distTwo = Vector3.Distance (two.localRotation.eulerAngles, victoryRotationTwo);
 		float distRelative = Vector3.Distance (four.localPosition - victoryPositionFour, two.localPosition - victoryPositionTwo);
 
-		Debug.Log("dist four " + distFour);
+		Debug.Log ("dist four " + distFour);
 		Debug.Log ("dist two " + distTwo);
 		Debug.Log ("dist rel " + distRelative);
 
-		if (distRelative < 5 && 
-		    (Mathf.Round(distFour) == 70 || (int)distFour == 63) &&
-		    (distTwo < 15 || (distTwo > 357 && distTwo < 360) || (distTwo > 501 && distTwo < 508))) {
-			
+		if (distRelative < 5 &&
+			(Mathf.Round (distFour) == 70 || (int)distFour == 63) &&
+			(distTwo < 15 || (distTwo > 357 && distTwo < 360) || (distTwo > 501 && distTwo < 508))) {
+
 			Debug.Log ("Victory");
 			victory = true;
 			canvasGroup.gameObject.SetActive (true);

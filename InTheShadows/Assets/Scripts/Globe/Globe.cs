@@ -30,15 +30,16 @@ public class Globe : MonoBehaviour {
 		victoryPositionGlobe = globe.localPosition;
 
 		globe.localEulerAngles = new Vector3 (-68.998f, 60.209f, -90.87601f);
-		globe.localPosition = new Vector3 (5.709631f, 0.162991f, -1.003177f);
+		globe.localPosition = new Vector3 (9.917603f, 0.2923183f, -1.590729f);
 
 		// body
 		victoryRotationBody = body.localRotation.eulerAngles;
 		victoryPositionBody = body.localPosition;
 
 		body.localEulerAngles = new Vector3 (-68.998f, 60.209f, -90.87601f);
-		body.localPosition = new Vector3 (-1.711695f, 0.2325124f, 3.69119f);
+		body.localPosition = new Vector3 (-3.597265f, 0.479141f, 4.155209f);
 
+		// canvas
 		canvasGroup.alpha = 0;
 		canvasGroup.gameObject.SetActive (false);
 	}
@@ -71,14 +72,15 @@ public class Globe : MonoBehaviour {
 	void checkVictory () {
 		float distGlobe = Vector3.Distance (globe.localRotation.eulerAngles, victoryRotationGlobe);
 		float distBody = Vector3.Distance (body.localRotation.eulerAngles, victoryRotationBody);
-		float distRelative = Vector3.Distance (body.localPosition - victoryPositionBody, globe.localPosition - victoryPositionGlobe);
-		Debug.Log("dist globe " + distGlobe);
-		Debug.Log("dist body " + distBody);
+		float distRelative = Vector3.Distance (globe.localPosition - victoryPositionGlobe, body.localPosition - victoryPositionBody);
+		Debug.Log ("dist globe " + distGlobe);
+		Debug.Log ("dist body " + distBody);
 		Debug.Log ("dist rel " + distRelative);
 
-		if (distRelative < 1 &&
+		if (distRelative < 1.5f &&
 			((distGlobe > 410 && distGlobe < 520) || (distGlobe > 310 && distGlobe < 375)) &&
 			(distBody > 300 && distBody < 600)) {
+			
 			Debug.Log ("Victory");
 			victory = true;
 			canvasGroup.gameObject.SetActive (true);

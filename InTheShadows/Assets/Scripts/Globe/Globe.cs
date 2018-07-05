@@ -19,8 +19,6 @@ public class Globe : MonoBehaviour {
 	private Vector3 victoryRotationBody;
 	private Vector3 victoryPositionBody;
 
-	private Vector3 victoryRelativePosition;
-
 	private CurrentClicked currentID = CurrentClicked.GLOBE;
 
 	public bool victory = false;
@@ -28,21 +26,18 @@ public class Globe : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// globe
-		// TODO BIG ERROR HERE : using of transform instead body or globe
-		victoryRotationGlobe = transform.localRotation.eulerAngles;
+		victoryRotationGlobe = globe.localRotation.eulerAngles;
 		victoryPositionGlobe = globe.localPosition;
-		globe.eulerAngles = new Vector3 (-10.73f, -26.201f, -180.052f);
-		globe.localPosition = new Vector3 (7.318865f, -0.04358357f, -3.809745f);
+
+		globe.localEulerAngles = new Vector3 (-68.998f, 60.209f, -90.87601f);
+		globe.localPosition = new Vector3 (5.709631f, 0.162991f, -1.003177f);
 
 		// body
-		victoryRotationBody = transform.localRotation.eulerAngles;
+		victoryRotationBody = body.localRotation.eulerAngles;
 		victoryPositionBody = body.localPosition;
-		body.eulerAngles = new Vector3 (163.825f, 236.875f, -198.965f);
-		body.localPosition = new Vector3 (-7.850225f, 1.035947f, 5.402049f);
 
-		// USELESS TO REMOVE
-		victoryRelativePosition = victoryPositionBody - victoryPositionGlobe;
-
+		body.localEulerAngles = new Vector3 (-68.998f, 60.209f, -90.87601f);
+		body.localPosition = new Vector3 (-1.711695f, 0.2325124f, 3.69119f);
 
 		canvasGroup.alpha = 0;
 		canvasGroup.gameObject.SetActive (false);
@@ -77,8 +72,8 @@ public class Globe : MonoBehaviour {
 		float distGlobe = Vector3.Distance (globe.localRotation.eulerAngles, victoryRotationGlobe);
 		float distBody = Vector3.Distance (body.localRotation.eulerAngles, victoryRotationBody);
 		float distRelative = Vector3.Distance (body.localPosition - victoryPositionBody, globe.localPosition - victoryPositionGlobe);
-		//Debug.Log("dist globe " + distGlobe);
-		//Debug.Log("dist body " + distBody);
+		Debug.Log("dist globe " + distGlobe);
+		Debug.Log("dist body " + distBody);
 		Debug.Log ("dist rel " + distRelative);
 
 		if (distRelative < 1 &&

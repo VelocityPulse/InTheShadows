@@ -267,8 +267,8 @@ ParticleSystemRenderer:
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.93
-  m_MaxParticleSize: 0.93
+  m_MinParticleSize: 1.08
+  m_MaxParticleSize: 1.08
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -343,7 +343,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1823604471
+  randomSeed: 770529724
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -903,7 +903,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.94
+      scalar: 1.24
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4544,7 +4544,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL 2
+  m_Text: Rather Britsh
 --- !u!114 &855061792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6016,7 +6016,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.10245847
+      value: 0.15353571
       mode: 0
       spread: 0
       speed:
@@ -6111,7 +6111,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 1.11
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -8858,13 +8858,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1534497573}
-  m_LocalRotation: {x: -0.041367054, y: -0.69717324, z: -0.04035996, w: 0.7145694}
-  m_LocalPosition: {x: 1375, y: 154.00002, z: -352}
+  m_LocalRotation: {x: -0.042164974, y: -0.7113074, z: -0.03952561, w: 0.70050097}
+  m_LocalPosition: {x: 1367.8, y: 77.2, z: -237.4}
   m_LocalScale: {x: 42.273758, y: 42.273735, z: 42.273746}
   m_Children: []
   m_Father: {fileID: 1786926667}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -6.6260004, y: -88.588005, z: 0}
+  m_LocalEulerAnglesHint: {x: -6.6210003, y: -90.892006, z: 0.266}
 --- !u!1 &1648376640
 GameObject:
   m_ObjectHideFlags: 0
@@ -8919,7 +8919,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 3.6
 --- !u!223 &1648376643
 Canvas:
   m_ObjectHideFlags: 0
@@ -9150,7 +9150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL 1
+  m_Text: Trunk
 --- !u!114 &1706569256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9367,7 +9367,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f6a01dd6ed9dc46a8b80a0dabe7f3319, type: 3}
-    m_FontSize: 43
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9378,7 +9378,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL 4
+  m_Text: The School Dream
 --- !u!114 &1810922978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9841,7 +9841,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f6a01dd6ed9dc46a8b80a0dabe7f3319, type: 3}
-    m_FontSize: 43
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9852,7 +9852,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL 3
+  m_Text: Around The World
 --- !u!114 &1948599420
 MonoBehaviour:
   m_ObjectHideFlags: 0

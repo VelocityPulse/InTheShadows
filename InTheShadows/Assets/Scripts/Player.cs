@@ -36,7 +36,8 @@ public class Player : MonoBehaviour {
 		return (p);
 	}
 
-	private void Awake () {
+	void Awake () {
+		Debug.Log ("PASS");
 		if (p == null) {
 			p = this;
 		}

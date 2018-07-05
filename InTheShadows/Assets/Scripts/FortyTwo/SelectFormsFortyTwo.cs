@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectFormsGlobe : MonoBehaviour {
+public class SelectFormsFortyTwo : MonoBehaviour {
 
 	public enum FormIndex {
 		FORM1,
@@ -10,7 +10,7 @@ public class SelectFormsGlobe : MonoBehaviour {
 	}
 
 	public FormIndex indexOfForm = FormIndex.FORM1;
-	public Globe parent;
+	public FortyTwo parent;
 
 	// Use this for initialization
 	void Start () {

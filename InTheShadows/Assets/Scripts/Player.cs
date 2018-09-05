@@ -53,7 +53,11 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.GetKey(KeyCode.Escape)) {
+			if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "MainMenu") {
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("MainMenu");
+			}
+		}
 	}
 
 	public LevelStatus statusLevelFor (int i) {
